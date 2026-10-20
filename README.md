@@ -50,6 +50,7 @@ cineflow-ai/
     firestore/            # Security rules and composite indexes
   docs/
     CONFIGURATION_TUTORIAL.md # Complete step-by-step setup tutorial
+    GOOGLE_CLOUD_CONSOLE_TUTORIAL.md # Click-by-click Google Cloud Console guide
     LOCAL_SETUP.md        # Windows local development walkthrough
     CREDIT_VERIFICATION.md# Step-by-step credit check guide
     GOOGLE_CLOUD_DEPLOYMENT.md # Cloud Run + IAP production deployment
