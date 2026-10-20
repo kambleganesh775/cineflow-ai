@@ -8,7 +8,7 @@ set -euo pipefail
 PROJECT_ID="${GOOGLE_CLOUD_PROJECT:-promptwars-494613}"
 REGION="${GOOGLE_CLOUD_LOCATION:-us-central1}"
 STORAGE_BUCKET="${GOOGLE_CLOUD_STORAGE_BUCKET:-cineflow-ai-private-videos-promptwars-494613}"
-OWNER_EMAIL="${AUTHORIZED_OWNER_EMAIL:-official.topanalytica@gmail.com}"
+OWNER_EMAIL="${AUTHORIZED_OWNER_EMAIL:-${1:-owner@cineflow.local}}"
 
 echo "=========================================================="
 echo "🎬 Deploying CineFlow AI Private Video Studio to Cloud Run"

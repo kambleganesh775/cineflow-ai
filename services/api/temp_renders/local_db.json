@@ -68,6 +68,18 @@
       "confirmedBillable": true,
       "createdAt": "2026-10-20T14:02:17.462Z",
       "operationName": "mock-op-da402baf-7906-43f2-94a8-b4f6fc333626-1792504937521"
+    },
+    "27f980ef-905a-4666-8488-236e8d9c2b4c": {
+      "id": "27f980ef-905a-4666-8488-236e8d9c2b4c",
+      "sceneId": "10f028f7-a593-44c2-bdf9-b30d1d3cb385",
+      "projectId": "b5777f1e-4763-461a-936b-0babc8d5112d",
+      "status": "running",
+      "progressPercent": 25,
+      "modelId": "veo-2.0-generate-001",
+      "estimatedCostUsd": 0.75,
+      "confirmedBillable": true,
+      "createdAt": "2026-10-20T14:25:51.010Z",
+      "operationName": "mock-op-10f028f7-a593-44c2-bdf9-b30d1d3cb385-1792506351070"
     }
   },
   "renders": {}

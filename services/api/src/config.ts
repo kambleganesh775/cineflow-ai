@@ -15,6 +15,7 @@ export interface AppConfig {
   firebaseProjectId: string;
   veoModelId: string;
   authorizedOwnerEmail: string;
+  authorizedEmails: string[];
   authMode: 'local_dev' | 'google_oauth' | 'google_iap';
   googleClientId?: string;
   maxSceneDurationSeconds: number;
@@ -25,6 +26,11 @@ export interface AppConfig {
   localTempDir: string;
 }
 
+const rawEmails = (process.env.AUTHORIZED_EMAILS || process.env.AUTHORIZED_OWNER_EMAIL || '').trim();
+const parsedEmails = rawEmails
+  ? rawEmails.split(',').map((e) => e.trim().toLowerCase()).filter(Boolean)
+  : [];
+
 export const config: AppConfig = {
   port: parseInt(process.env.PORT || process.env.API_PORT || '4000', 10),
   apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:4000',
@@ -34,7 +40,8 @@ export const config: AppConfig = {
   googleCloudStorageBucket: process.env.GOOGLE_CLOUD_STORAGE_BUCKET || 'cineflow-ai-private-videos-promptwars-494613',
   firebaseProjectId: process.env.FIREBASE_PROJECT_ID || process.env.GOOGLE_CLOUD_PROJECT || 'promptwars-494613',
   veoModelId: process.env.VEO_MODEL_ID || 'veo-2.0-generate-001',
-  authorizedOwnerEmail: (process.env.AUTHORIZED_OWNER_EMAIL || 'official.topanalytica@gmail.com').trim().toLowerCase(),
+  authorizedOwnerEmail: parsedEmails[0] || (process.env.AUTHORIZED_OWNER_EMAIL || 'owner@cineflow.local').trim().toLowerCase(),
+  authorizedEmails: parsedEmails,
   authMode: (process.env.AUTH_MODE as any) || 'local_dev',
   googleClientId: process.env.GOOGLE_CLIENT_ID,
   maxSceneDurationSeconds: parseInt(process.env.MAX_SCENE_DURATION_SECONDS || '8', 10),

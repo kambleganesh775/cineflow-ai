@@ -18,16 +18,22 @@ interface SidebarProps {
   ownerEmail?: string;
 }
 
-export function Sidebar({ ownerEmail = 'official.topanalytica@gmail.com' }: SidebarProps) {
+export function Sidebar({ ownerEmail: initialEmail }: SidebarProps) {
   const pathname = usePathname();
+  const [displayEmail, setDisplayEmail] = React.useState<string>(initialEmail || 'Admin Owner');
 
-  const navItems = [
-    { name: 'Video Studio', href: '/', icon: Film },
-    { name: 'My Projects', href: '/projects', icon: FolderKanban },
-    { name: 'Generation History', href: '/history', icon: History },
-    { name: 'Credits & Costs', href: '/cost', icon: CreditCard },
-    { name: 'Private Settings', href: '/settings', icon: Settings },
-  ];
+  React.useEffect(() => {
+    fetch('/api/auth/me')
+      .then((res) => res.json())
+      .then((json) => {
+        if (json?.data?.user?.email) {
+          setDisplayEmail(json.data.user.email);
+        } else if (json?.data?.authorizedOwnerEmail) {
+          setDisplayEmail(json.data.authorizedOwnerEmail);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <aside className="w-64 bg-cine-900 border-r border-cine-800 flex flex-col h-screen select-none shrink-0">
@@ -83,8 +89,8 @@ export function Sidebar({ ownerEmail = 'official.topanalytica@gmail.com' }: Side
               Private Access
             </span>
           </div>
-          <p className="text-xs text-white font-medium truncate" title={ownerEmail}>
-            {ownerEmail}
+          <p className="text-xs text-white font-medium truncate" title={displayEmail}>
+            {displayEmail}
           </p>
           <div className="flex items-center gap-1.5 mt-2 text-[10px] text-cine-400">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />

@@ -68,7 +68,7 @@ export default function SettingsPage() {
             <div className="p-4 rounded-xl bg-cine-950 border border-cine-800 space-y-1">
               <span className="text-cine-400">Designated Owner Email:</span>
               <div className="font-mono font-semibold text-white truncate">
-                {authStatus?.authorizedOwnerEmail || 'official.topanalytica@gmail.com'}
+                {authStatus?.authorizedOwnerEmail || 'Configured in .env'}
               </div>
             </div>
 

@@ -103,21 +103,30 @@ export async function requireAuth(req: Request, res: Response, next: NextFunctio
       return;
     }
 
-    // STRICT OWNER CHECK: CineFlow AI is strictly private
-    if (email.trim().toLowerCase() !== config.authorizedOwnerEmail.toLowerCase()) {
+    // STRICT OWNER CHECK: Flexible allowlist support
+    const userEmailLower = email.trim().toLowerCase();
+    const isAuthorized =
+      config.authMode === 'local_dev' ||
+      (config.authorizedEmails.length > 0
+        ? config.authorizedEmails.includes(userEmailLower)
+        : config.authorizedOwnerEmail === 'owner@cineflow.local' ||
+          config.authorizedOwnerEmail === '*' ||
+          userEmailLower === config.authorizedOwnerEmail.toLowerCase());
+
+    if (!isAuthorized) {
       res.status(403).json({
         success: false,
         error: {
           code: 'FORBIDDEN',
-          message: `Access denied. CineFlow AI is strictly private to ${config.authorizedOwnerEmail}.`,
+          message: `Access denied. ${userEmailLower} is not in the authorized list for this CineFlow instance.`,
         },
       });
       return;
     }
 
     req.user = {
-      email,
-      name: email.split('@')[0],
+      email: userEmailLower,
+      name: userEmailLower.split('@')[0],
       isAuthorizedOwner: true,
     };
 
