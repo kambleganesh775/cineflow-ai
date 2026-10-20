@@ -45,3 +45,11 @@ The application supports three authentication modes configured via `AUTH_MODE`:
 - **Standard Rate Limiter**: 120 requests/min per IP to prevent API spam.
 - **Generation Rate Limiter**: Maximum 10 generation triggers/min to prevent accidental queue bursts.
 - **Concurrency Limiter**: Maximum 2 concurrent video generation jobs running simultaneously. Excess jobs wait in a managed queue.
+
+---
+
+## 5. AI Omni Director Security Safeguards
+
+- **Strict Identity Enforcement**: The `/api/omni/storyboard` and `/api/omni/enhance-prompt` endpoints sit behind the `requireAuth` middleware. Only requests verified as the authorized owner are permitted to execute prompt enhancements or storyboard generations.
+- **Input Validation & Boundary Clamping**: User story descriptions and prompts are sanitized with explicit length bounds to prevent prompt injection or runaway token consumption.
+- **Private Pipeline Execution**: All storyboarding and prompt engineering runs directly within your private backend and Google Cloud project. No creative data or user prompts are ever shared with external third-party services.

@@ -14,7 +14,8 @@ This tutorial provides a complete step-by-step guide to configure, run, and cust
 5. [Step 4: Understand the Two Modes (Mock vs Real Generation)](#step-4-understand-the-two-modes-mock-vs-real-generation)
 6. [Step 5: Start CineFlow AI Studio](#step-5-start-cineflow-ai-studio)
 7. [Step 6: How to Generate Your First Video](#step-6-how-to-generate-your-first-video)
-8. [Troubleshooting & FAQs](#troubleshooting--faqs)
+8. [Step 7: How to Use AI Omni Director](#step-7-how-to-use-ai-omni-director)
+9. [Troubleshooting & FAQs](#troubleshooting--faqs)
 
 ---
 
@@ -212,6 +213,35 @@ Your Next.js Studio will be live at:
    - Add multiple scenes (Scene 1, Scene 2, Scene 3).
    - Drag or use the arrows on the timeline to arrange their story order.
    - Click **Export Final Video** — CineFlow AI uses FFmpeg to concatenate and normalize all clips into a single continuous film!
+
+---
+
+## Step 7: How to Use AI Omni Director
+
+CineFlow AI features **AI Omni Director**, a specialized director co-pilot for multi-scene storytelling and prompt engineering:
+
+### 1. Generating an Entire Film Storyboard in 1 Click
+1. Click the glowing **✨ Omni Director** button in the top navigation header.
+2. Type your core concept or logline (e.g., *"A neon detective in 2088 tracking a rogue android through an underwater city"*).
+3. Pick a **Genre**:
+   - *Cyberpunk*, *Sci-Fi*, *Cinematic Drama*, *Thriller*, *Fantasy*, *Documentary*.
+4. Choose your **Pacing**:
+   - *Slow & Contemplative* (establishing shots, long focal lengths)
+   - *Dynamic Narrative* (standard cinematic pacing with movement)
+   - *Fast & Intense* (rapid tracking, handheld, urgent action)
+5. Click **Generate Storyboard with Omni**.
+6. Omni Director outputs 4 to 6 fully formed scenes complete with:
+   - Scene Titles and Shot Orders
+   - Lens specifications (35mm, 50mm, 85mm anamorphic)
+   - Camera movements (dolly, tilt, drone orbit, slow push)
+   - Lighting directions (chiaroscuro, volumetric, neon)
+7. Click **Import All Scenes to Project** to append all generated scenes onto your timeline instantly!
+
+### 2. Enhancing Single Scene Prompts
+1. Open any scene on your timeline.
+2. In the **Cinematic Prompt** box, type a basic idea (e.g., *"a sports car driving on a coastal highway at sunset"*).
+3. Click the **✨ Enhance with Omni** button right below the text area.
+4. Omni Director enriches the prompt with photorealistic film details, golden hour lighting angles, and cinematic camera directives tailored for Google Cloud Vertex AI Veo.
 
 ---
 

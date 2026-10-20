@@ -11,6 +11,10 @@
 ## 🌟 Key Features
 
 - **Strictly Private Personal Studio**: Built solely for your authorized Google Account (configured via `AUTHORIZED_OWNER_EMAIL` in `.env`). Zero public access, no subscriptions, no multi-user SaaS bloat.
+- **AI Omni Director & Co-Pilot**:
+  - **Automated Storyboard Generator**: Converts a single story idea into 4 to 6 visually coherent cinematic scenes with shot titles, optimized prompts, camera motion, and lighting presets.
+  - **Prompt Enhancer**: One-click "✨ Enhance with Omni" button that transforms raw scene ideas into rich, 35mm anamorphic camera and lighting prompts optimized for Vertex AI Veo.
+  - **Genre & Pacing Controls**: Tailor generation for Sci-Fi, Cyberpunk, Cinematic Drama, Thriller, Fantasy, or Documentary with dynamic or contemplative pacing.
 - **Real Google Cloud Vertex AI Veo Integration**: Direct integration with Google's official `predictLongRunning` endpoint for Veo models (`veo-2.0-generate-001`, `veo-3.0-generate-001`).
 - **Multi-Scene Video Studio**:
   - Horizontal timeline editor with duration, aspect ratio, and status tags.
@@ -34,17 +38,18 @@ cineflow-ai/
   apps/
     web/                  # Next.js 14 App Router, Tailwind CSS, Lucide icons
       app/                # Studio, Projects, History, Costs, Settings
-      components/         # Timeline, VideoPlayer, SceneEditor, InspectorPanel, Modals
+      components/         # Timeline, VideoPlayer, SceneEditor, OmniDirectorModal, Modals
       lib/                # Type-safe API client
   services/
     api/                  # Express REST API (TypeScript)
       src/
         controllers/      # Projects, Scenes, Jobs, Render, Cost controllers
+        routes/           # Projects, Scenes, Render, Cost, Assets, Omni routes
         middleware/       # Auth (Strict Google allowlist), RateLimiter, ErrorHandler
-        services/         # VertexVeo, Storage (Signed URLs), Firestore, FFmpeg Assembler
+        services/         # VertexVeo, OmniDirector, Storage, Firestore, FFmpeg Assembler
         validators/       # Zod schemas
   packages/
-    shared/               # Common types, Veo model configs, pricing, and cost calculators
+    shared/               # Common types, Veo & Omni models, pricing, and cost calculators
   infrastructure/
     cloudrun/             # Dockerfiles & Cloud Run deployment scripts
     firestore/            # Security rules and composite indexes

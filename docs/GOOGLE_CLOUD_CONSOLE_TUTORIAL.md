@@ -58,8 +58,8 @@ gcloud services enable \
 ### Alternatively, enable them manually in the Console:
 1. Search for **APIs & Services** > **Library** ([https://console.cloud.google.com/apis/library](https://console.cloud.google.com/apis/library)).
 2. Search and click **Enable** for each of these:
-   - **Vertex AI API** (`aiplatform.googleapis.com`) — *Required for Veo video generation*
-   - **Cloud Storage API** (`storage.googleapis.com`) — *Required for storing video clips*
+   - **Vertex AI API** (`aiplatform.googleapis.com`) — *Required for Veo video generation & Omni Director AI*
+   - **Cloud Storage API** (`storage.googleapis.com`) — *Required for storing private video clips*
    - **Cloud Firestore API** (`firestore.googleapis.com`) — *Required for database persistence*
    - **Cloud Run Admin API** (`run.googleapis.com`) — *Required if deploying to the cloud*
 

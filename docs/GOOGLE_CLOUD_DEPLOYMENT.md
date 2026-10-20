@@ -17,7 +17,7 @@ This guide describes how to deploy **CineFlow AI** to Google Cloud using a stric
        ▼ (x-goog-iap-jwt-assertion verified)
 [Google Cloud Run: CineFlow Web & API]
        │
-       ├─► [Vertex AI Veo API (predictLongRunning)]
+       ├─► [Vertex AI Veo (predictLongRunning) & Omni Director]
        ├─► [Google Cloud Storage (Private Bucket, gs://...)]
        └─► [Google Cloud Firestore (Projects, Scenes, Jobs)]
 ```

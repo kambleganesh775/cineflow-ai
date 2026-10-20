@@ -101,7 +101,24 @@ When ready to generate real videos with Google Cloud Vertex AI Veo:
 
 ---
 
-## 6. Running Automated Tests
+## 6. Using the AI Omni Director Co-Pilot
+
+CineFlow AI includes **AI Omni Director**, an intelligent storyboarding and prompt engineering co-pilot:
+
+1. **Automatic Multi-Scene Storyboarding**:
+   - In the Studio header, click the **✨ Omni Director** button.
+   - Describe your story idea (e.g., *"A solitary astronaut discovering an ancient alien monolithic structure in an icy canyon on Europa"*).
+   - Select your preferred **Genre** (*Sci-Fi, Cyberpunk, Cinematic Drama, Fantasy, Thriller, Documentary*) and **Pacing** (*Slow, Dynamic, Fast*).
+   - Click **Generate Storyboard with Omni**.
+   - Review the generated scenes and click **Import All Scenes to Project** to immediately populate your timeline.
+
+2. **Scene Prompt Enhancer**:
+   - When editing any individual scene in the Scene Editor, enter a simple description and click **✨ Enhance with Omni**.
+   - Omni Director rewrites the prompt into a professional cinematic prompt with camera lenses (e.g. 35mm anamorphic), volumetric lighting, and camera paths.
+
+---
+
+## 7. Running Automated Tests
 
 Run the full suite of unit, security, and API tests:
 ```powershell

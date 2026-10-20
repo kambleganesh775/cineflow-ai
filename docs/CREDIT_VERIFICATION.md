@@ -43,6 +43,11 @@ Vertex AI Veo charges on a **pay-as-you-go, per-output-second** basis for succes
 
 *Note: Unsuccessful requests, filtered prompts, or requests rejected before completion incur **$0.00** charge.*
 
+### AI Omni Director Cost Impact
+- **Omni Storyboard Generation** (`POST /api/omni/storyboard`): Generates 4-6 scene outlines and prompts. In Mock mode, cost is **$0.00**. When using live Vertex AI language models, cost is negligible (~**$0.0002 USD** per storyboard), easily covered by trial credits.
+- **Omni Prompt Enhancement** (`POST /api/omni/enhance-prompt`): Costs **$0.00** in Mock mode and ~**$0.00005 USD** per enhancement.
+- High costs only occur when you explicitly click **"Generate Scene"** with Veo after reviewing the confirmation modal.
+
 ---
 
 ## 5. Quota Verification
