@@ -7,7 +7,7 @@ CineFlow AI is built strictly as a **private personal application**, not a multi
 ## 1. Zero Public Exposure Model
 
 1. **No Public Registration**: There are no user sign-up pages, onboarding flows, subscription forms, or checkout pages.
-2. **Strict Identity Allowlist**: Access is hard-bound to the designated owner email (`official.topanalytica@gmail.com`).
+2. **Strict Identity Allowlist**: Access is bound to the owner email configured via `AUTHORIZED_OWNER_EMAIL` in `.env`.
 3. **No Public Media Assets**: The Google Cloud Storage bucket uses Uniform Bucket-Level Access with public reads completely disabled (`allUsers` banned). Videos are only accessible via cryptographically signed URLs valid for 60 to 120 minutes.
 4. **No Direct Frontend-to-Vertex Calls**: The frontend never holds Google Cloud service account keys or privileged credentials. All generation requests pass through the authenticated Express API.
 

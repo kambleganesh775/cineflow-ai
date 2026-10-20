@@ -48,7 +48,7 @@ Run the following command in PowerShell:
 ```powershell
 gcloud auth application-default login
 ```
-This opens your browser to log in with your authorized Google Account (`official.topanalytica@gmail.com`). This grants the local Node.js backend credentials to authenticate calls to Vertex AI Veo and Cloud Storage.
+This opens your browser to log in with your authorized Google Account. This grants the local Node.js backend credentials to authenticate calls to Vertex AI Veo and Cloud Storage.
 
 Set your default Google Cloud project:
 ```powershell
@@ -73,7 +73,7 @@ The API starts at `http://localhost:4000` and displays:
 ```
 =======================================================
 🎬 CineFlow AI API Service running on port 4000
-🔒 Strictly Private Mode: Authorized Owner -> official.topanalytica@gmail.com
+🔒 Strictly Private Mode: Authorized Owner -> your-email@gmail.com
 🛡️ Auth Mode: local_dev
 📹 Veo Model: veo-2.0-generate-001 in us-central1
 ☁️ Cloud Storage: cineflow-ai-private-videos-your-project-id

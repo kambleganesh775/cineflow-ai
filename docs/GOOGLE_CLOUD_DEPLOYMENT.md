@@ -12,7 +12,7 @@ This guide describes how to deploy **CineFlow AI** to Google Cloud using a stric
        ▼
 [External Application Load Balancer]
        │
-[Identity-Aware Proxy (IAP)] ──── (Restricts access exclusively to official.topanalytica@gmail.com)
+[Identity-Aware Proxy (IAP)] ──── (Restricts access exclusively to your-email@gmail.com)
        │
        ▼ (x-goog-iap-jwt-assertion verified)
 [Google Cloud Run: CineFlow Web & API]
@@ -59,9 +59,9 @@ To access your personal Cloud Run studio securely over the public web without ma
 3. Locate the backend service associated with your Load Balancer.
 4. Toggle the **IAP** switch to **ON**.
 5. Select the backend service, click **Add Principal**:
-   - **Principal**: `official.topanalytica@gmail.com`
+   - **Principal**: `your-google-email@gmail.com`
    - **Role**: `roles/iap.httpsResourceAccessor` (IAP-secured Web App User)
-6. **Result**: Anyone attempting to access the URL will be prompted to log in with Google. If the account is not `official.topanalytica@gmail.com`, Google Cloud edge proxies immediately deny access with HTTP 403 before any request ever reaches your container.
+6. **Result**: Anyone attempting to access the URL will be prompted to log in with Google. If the account does not match your authorized email, Google Cloud edge proxies immediately deny access with HTTP 403 before any request ever reaches your container.
 
 ---
 

@@ -10,7 +10,7 @@
 
 ## 🌟 Key Features
 
-- **Strictly Private Personal Studio**: Built solely for your authorized Google Account (`official.topanalytica@gmail.com`). Zero public access, no subscriptions, no multi-user SaaS bloat.
+- **Strictly Private Personal Studio**: Built solely for your authorized Google Account (configured via `AUTHORIZED_OWNER_EMAIL` in `.env`). Zero public access, no subscriptions, no multi-user SaaS bloat.
 - **Real Google Cloud Vertex AI Veo Integration**: Direct integration with Google's official `predictLongRunning` endpoint for Veo models (`veo-2.0-generate-001`, `veo-3.0-generate-001`).
 - **Multi-Scene Video Studio**:
   - Horizontal timeline editor with duration, aspect ratio, and status tags.
