@@ -365,7 +365,6 @@ export default function StudioPage() {
       <CreditGuidanceModal
         isOpen={isCreditModalOpen}
         onClose={() => setIsCreditModalOpen(false)}
-        gcpProject="promptwars-494613"
       />
 
       {/* New Project Modal */}

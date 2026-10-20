@@ -7,7 +7,7 @@ This document outlines the mandatory protocol to verify your **Google Cloud Tria
 ## 1. How to Verify Your Credit Balance
 
 1. Log in to the [Google Cloud Console Billing Overview](https://console.cloud.google.com/billing/).
-2. Select the Billing Account linked to your project (`promptwars-494613`).
+2. Select the Billing Account linked to your Google Cloud project.
 3. Under the **Overview** dashboard, locate the **Credits** section.
 4. Verify the **Promotional Credit Amount** remaining (e.g., ~$300.00).
 

@@ -102,7 +102,7 @@ export default function SettingsPage() {
             <div className="p-4 rounded-xl bg-cine-950 border border-cine-800 space-y-1">
               <span className="text-cine-400">Google Cloud Project:</span>
               <div className="font-mono font-semibold text-white">
-                {diagnostic?.gcpProject || 'promptwars-494613'}
+                {diagnostic?.gcpProject || 'Configured in .env'}
               </div>
             </div>
 
@@ -116,7 +116,7 @@ export default function SettingsPage() {
             <div className="p-4 rounded-xl bg-cine-950 border border-cine-800 space-y-1">
               <span className="text-cine-400">Cloud Storage Bucket (Private):</span>
               <div className="font-mono font-semibold text-white truncate">
-                cineflow-ai-private-videos-promptwars-494613
+                {diagnostic?.storageBucket || 'cineflow-ai-private-videos-[your-project]'}
               </div>
             </div>
 

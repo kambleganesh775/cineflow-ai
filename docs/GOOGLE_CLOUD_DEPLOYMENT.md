@@ -28,7 +28,7 @@ This guide describes how to deploy **CineFlow AI** to Google Cloud using a stric
 
 1. Set your active Google Cloud project:
 ```bash
-gcloud config set project promptwars-494613
+gcloud config set project your-google-cloud-project-id
 ```
 2. Ensure you have the `roles/owner` or `roles/resourcemanager.organizationAdmin` role to configure IAM policies.
 
@@ -69,6 +69,6 @@ To access your personal Cloud Run studio securely over the public web without ma
 
 Verify that your Cloud Storage bucket has no public permissions:
 ```bash
-gsutil iam get gs://cineflow-ai-private-videos-promptwars-494613
+gsutil iam get gs://cineflow-ai-private-videos-your-project-id
 ```
 Ensure that `allUsers` and `allAuthenticatedUsers` are **NOT** present in the IAM policy. Videos can only be streamed or downloaded via short-lived signed URLs generated on-demand by your authenticated backend.

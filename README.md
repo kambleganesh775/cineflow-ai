@@ -71,7 +71,7 @@ Copy-Item .env.example .env
 Authenticate your local environment with your authorized Google Account:
 ```powershell
 gcloud auth application-default login
-gcloud config set project promptwars-494613
+gcloud config set project your-google-cloud-project-id
 ```
 
 ### 3. Build Shared Package

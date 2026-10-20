@@ -21,7 +21,7 @@ interface CreditGuidanceModalProps {
 export function CreditGuidanceModal({
   isOpen,
   onClose,
-  gcpProject = 'promptwars-494613',
+  gcpProject = 'your-google-cloud-project-id',
 }: CreditGuidanceModalProps) {
   if (!isOpen) return null;
 

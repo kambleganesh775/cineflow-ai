@@ -1,85 +1,18 @@
 {
   "projects": {},
-  "scenes": {
-    "abecd181-b4a4-4b84-8547-cd40a571f474": {
-      "id": "abecd181-b4a4-4b84-8547-cd40a571f474",
-      "projectId": "4aa98b7a-4360-4df9-b0d3-0c6c489f2a51",
-      "title": "Opening Rain Shot",
-      "orderIndex": 0,
-      "prompt": "A hooded figure walks through neon-lit streets reflected in puddle ripples.",
-      "negativePrompt": "blurry, cartoon, low resolution",
-      "cameraMovement": "Low Angle Tracking",
-      "lighting": "Cyberpunk Neon Ambient",
-      "visualStyle": "Cinematic Photorealistic 35mm",
-      "aspectRatio": "16:9",
-      "durationSeconds": 5,
-      "resolution": "720p",
-      "modelId": "veo-2.0-generate-001",
-      "status": "completed",
-      "estimatedCostUsd": 0.75,
-      "createdAt": "2026-10-20T14:00:49.044Z",
-      "updatedAt": "2026-10-20T14:00:49.044Z",
-      "jobId": "d6909fe9-ce04-4041-9601-449f45452ca1",
-      "videoStorageUri": "gs://cineflow-ai-private-videos-promptwars-494613/mock/mock-op-abecd181-b4a4-4b84-8547-cd40a571f474-1792504849204.mp4",
-      "playbackUrl": "http://localhost:4000/api/assets/stream?path=mock%2Fmock-op-abecd181-b4a4-4b84-8547-cd40a571f474-1792504849204.mp4&exp=1792512055257",
-      "downloadUrl": "http://localhost:4000/api/assets/stream?path=mock%2Fmock-op-abecd181-b4a4-4b84-8547-cd40a571f474-1792504849204.mp4&exp=1792512055263",
-      "actualCostUsd": 0.75
-    }
-  },
+  "scenes": {},
   "jobs": {
-    "888face8-2db0-4bba-aea1-00201335e811": {
-      "id": "888face8-2db0-4bba-aea1-00201335e811",
-      "sceneId": "abecd181-b4a4-4b84-8547-cd40a571f474",
-      "projectId": "4aa98b7a-4360-4df9-b0d3-0c6c489f2a51",
-      "status": "failed",
-      "progressPercent": 10,
-      "modelId": "veo-2.0-generate-001",
-      "estimatedCostUsd": 0.75,
-      "confirmedBillable": false,
-      "createdAt": "2026-10-20T14:00:49.081Z",
-      "errorMessage": "Billing confirmation required before generating video. Estimated cost: $0.75 USD.",
-      "completedAt": "2026-10-20T14:00:49.150Z"
-    },
-    "d6909fe9-ce04-4041-9601-449f45452ca1": {
-      "id": "d6909fe9-ce04-4041-9601-449f45452ca1",
-      "sceneId": "abecd181-b4a4-4b84-8547-cd40a571f474",
-      "projectId": "4aa98b7a-4360-4df9-b0d3-0c6c489f2a51",
-      "status": "completed",
-      "progressPercent": 100,
-      "modelId": "veo-2.0-generate-001",
-      "estimatedCostUsd": 0.75,
-      "confirmedBillable": true,
-      "createdAt": "2026-10-20T14:00:49.186Z",
-      "operationName": "mock-op-abecd181-b4a4-4b84-8547-cd40a571f474-1792504849204",
-      "videoStorageUri": "gs://cineflow-ai-private-videos-promptwars-494613/mock/mock-op-abecd181-b4a4-4b84-8547-cd40a571f474-1792504849204.mp4",
-      "completedAt": "2026-10-20T14:00:55.235Z",
-      "playbackUrl": "http://localhost:4000/api/assets/stream?path=mock%2Fmock-op-abecd181-b4a4-4b84-8547-cd40a571f474-1792504849204.mp4&exp=1792512055257",
-      "downloadUrl": "http://localhost:4000/api/assets/stream?path=mock%2Fmock-op-abecd181-b4a4-4b84-8547-cd40a571f474-1792504849204.mp4&exp=1792512055263",
-      "actualCostUsd": 0.75
-    },
-    "5c219361-83ac-4b56-9aec-384aa0ad9628": {
-      "id": "5c219361-83ac-4b56-9aec-384aa0ad9628",
-      "sceneId": "da402baf-7906-43f2-94a8-b4f6fc333626",
-      "projectId": "0ada21d6-4f76-4b5a-bca1-89c910b82b5d",
+    "2ed16514-44f4-4c3f-8424-8e27f66a7910": {
+      "id": "2ed16514-44f4-4c3f-8424-8e27f66a7910",
+      "sceneId": "dc44aec1-3240-4806-b7ec-c94368d8c5be",
+      "projectId": "46114d06-fee7-460f-a231-187b46547b82",
       "status": "running",
       "progressPercent": 25,
       "modelId": "veo-2.0-generate-001",
       "estimatedCostUsd": 0.75,
       "confirmedBillable": true,
-      "createdAt": "2026-10-20T14:02:17.462Z",
-      "operationName": "mock-op-da402baf-7906-43f2-94a8-b4f6fc333626-1792504937521"
-    },
-    "27f980ef-905a-4666-8488-236e8d9c2b4c": {
-      "id": "27f980ef-905a-4666-8488-236e8d9c2b4c",
-      "sceneId": "10f028f7-a593-44c2-bdf9-b30d1d3cb385",
-      "projectId": "b5777f1e-4763-461a-936b-0babc8d5112d",
-      "status": "running",
-      "progressPercent": 25,
-      "modelId": "veo-2.0-generate-001",
-      "estimatedCostUsd": 0.75,
-      "confirmedBillable": true,
-      "createdAt": "2026-10-20T14:25:51.010Z",
-      "operationName": "mock-op-10f028f7-a593-44c2-bdf9-b30d1d3cb385-1792506351070"
+      "createdAt": "2026-10-20T14:30:32.154Z",
+      "operationName": "mock-op-dc44aec1-3240-4806-b7ec-c94368d8c5be-1792506632233"
     }
   },
   "renders": {}

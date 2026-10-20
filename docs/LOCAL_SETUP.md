@@ -24,13 +24,13 @@ Copy-Item .env.example .env
 2. Inspect `.env` and verify key variables:
 ```env
 # Google Cloud
-GOOGLE_CLOUD_PROJECT=promptwars-494613
+GOOGLE_CLOUD_PROJECT=your-google-cloud-project-id
 GOOGLE_CLOUD_LOCATION=us-central1
-GOOGLE_CLOUD_STORAGE_BUCKET=cineflow-ai-private-videos-promptwars-494613
+GOOGLE_CLOUD_STORAGE_BUCKET=cineflow-ai-private-videos-your-project-id
 VEO_MODEL_ID=veo-2.0-generate-001
 
-# Strictly Personal Ownership
-AUTHORIZED_OWNER_EMAIL=official.topanalytica@gmail.com
+# Personal Ownership
+AUTHORIZED_OWNER_EMAIL=your-google-email@gmail.com
 AUTH_MODE=local_dev
 
 # Cost & Safety Guards
@@ -52,7 +52,7 @@ This opens your browser to log in with your authorized Google Account (`official
 
 Set your default Google Cloud project:
 ```powershell
-gcloud config set project promptwars-494613
+gcloud config set project your-google-cloud-project-id
 ```
 
 ---
@@ -76,7 +76,7 @@ The API starts at `http://localhost:4000` and displays:
 🔒 Strictly Private Mode: Authorized Owner -> official.topanalytica@gmail.com
 🛡️ Auth Mode: local_dev
 📹 Veo Model: veo-2.0-generate-001 in us-central1
-☁️ Cloud Storage: cineflow-ai-private-videos-promptwars-494613
+☁️ Cloud Storage: cineflow-ai-private-videos-your-project-id
 =======================================================
 ```
 

@@ -5,9 +5,9 @@
 
 set -euo pipefail
 
-PROJECT_ID="${GOOGLE_CLOUD_PROJECT:-promptwars-494613}"
+PROJECT_ID="${GOOGLE_CLOUD_PROJECT:-your-google-cloud-project-id}"
 REGION="${GOOGLE_CLOUD_LOCATION:-us-central1}"
-STORAGE_BUCKET="${GOOGLE_CLOUD_STORAGE_BUCKET:-cineflow-ai-private-videos-promptwars-494613}"
+STORAGE_BUCKET="${GOOGLE_CLOUD_STORAGE_BUCKET:-cineflow-ai-private-videos-${PROJECT_ID}}"
 OWNER_EMAIL="${AUTHORIZED_OWNER_EMAIL:-${1:-owner@cineflow.local}}"
 
 echo "=========================================================="
