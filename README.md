@@ -49,6 +49,7 @@ cineflow-ai/
     cloudrun/             # Dockerfiles & Cloud Run deployment scripts
     firestore/            # Security rules and composite indexes
   docs/
+    CONFIGURATION_TUTORIAL.md # Complete step-by-step setup tutorial
     LOCAL_SETUP.md        # Windows local development walkthrough
     CREDIT_VERIFICATION.md# Step-by-step credit check guide
     GOOGLE_CLOUD_DEPLOYMENT.md # Cloud Run + IAP production deployment
