@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Strictly personal database: Only the designated owner can read or write documents.
+    function isAuthorizedOwner() {
+      return request.auth != null && request.auth.token.email.lower() == 'official.topanalytica@gmail.com';
+    }
+
+    match /projects/{projectId} {
+      allow read, write: if isAuthorizedOwner();
+    }
+
+    match /scenes/{sceneId} {
+      allow read, write: if isAuthorizedOwner();
+    }
+
+    match /jobs/{jobId} {
+      allow read, write: if isAuthorizedOwner();
+    }
+
+    match /renders/{renderId} {
+      allow read, write: if isAuthorizedOwner();
+    }
+  }
+}

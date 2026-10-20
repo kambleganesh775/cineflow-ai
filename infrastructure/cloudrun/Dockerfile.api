@@ -1,0 +1,45 @@
+# Multi-stage production Dockerfile for CineFlow AI API Service
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+RUN apk add --no-cache python3 make g++
+
+# Copy package descriptors
+COPY package*.json ./
+COPY packages/shared/package*.json ./packages/shared/
+COPY services/api/package*.json ./services/api/
+COPY apps/web/package*.json ./apps/web/
+
+RUN npm install
+
+# Copy source files
+COPY packages/shared ./packages/shared
+COPY services/api ./services/api
+
+# Build shared package and API service
+RUN npm run build:shared
+RUN npm run build:api
+
+# Runner image
+FROM node:20-alpine AS runner
+
+WORKDIR /app
+RUN apk add --no-cache ffmpeg
+
+ENV NODE_ENV=production
+ENV PORT=8080
+
+COPY package*.json ./
+COPY packages/shared/package*.json ./packages/shared/
+COPY services/api/package*.json ./services/api/
+
+RUN npm install --omit=dev
+
+COPY --from=builder /app/packages/shared/dist ./packages/shared/dist
+COPY --from=builder /app/services/api/dist ./services/api/dist
+
+USER node
+
+EXPOSE 8080
+
+CMD ["node", "services/api/dist/index.js"]

@@ -1,0 +1,24 @@
+{
+  "name": "cineflow-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CineFlow AI — Private AI Video Studio powered by Google Cloud Vertex AI Veo",
+  "workspaces": [
+    "packages/*",
+    "services/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build:shared": "npm run build --workspace=packages/shared",
+    "build:api": "npm run build --workspace=services/api",
+    "build:web": "npm run build --workspace=apps/web",
+    "build": "npm run build:shared && npm run build:api && npm run build:web",
+    "dev:api": "npm run dev --workspace=services/api",
+    "dev:web": "npm run dev --workspace=apps/web",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
