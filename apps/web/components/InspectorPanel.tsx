@@ -80,13 +80,24 @@ export function InspectorPanel({
       {/* Model Selection */}
       <div className="space-y-2">
         <label className="text-xs font-semibold text-cine-300 flex items-center justify-between">
-          <span>Veo Model</span>
+          <span className="flex items-center gap-1.5">
+            <span>Model Engine</span>
+            {scene.modelId === 'veo-omni-generate-001' && (
+              <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-gradient-to-r from-purple-500/20 to-amber-500/20 text-purple-300 border border-purple-500/30">
+                ✨ Omni Active
+              </span>
+            )}
+          </span>
           <span className="text-[10px] text-cine-400">Google Cloud</span>
         </label>
         <select
           value={scene.modelId}
           onChange={(e) => onUpdateScene({ modelId: e.target.value })}
-          className="w-full bg-cine-950 border border-cine-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-amber-400 font-medium"
+          className={`w-full bg-cine-950 border rounded-xl p-2.5 text-xs text-white focus:outline-none font-medium transition-all ${
+            scene.modelId === 'veo-omni-generate-001'
+              ? 'border-purple-500/60 focus:border-purple-400 shadow-sm shadow-purple-500/10'
+              : 'border-cine-800 focus:border-amber-400'
+          }`}
         >
           {Object.values(VEO_MODELS).map((m) => (
             <option key={m.id} value={m.id}>

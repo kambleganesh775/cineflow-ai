@@ -32,6 +32,8 @@ export function OmniDirectorModal({
   const [concept, setConcept] = useState('');
   const [genre, setGenre] = useState('Cyberpunk Sci-Fi');
   const [sceneCount, setSceneCount] = useState(4);
+  const [omniModelId, setOmniModelId] = useState('gemini-2.0-flash');
+  const [videoModelId, setVideoModelId] = useState('veo-omni-generate-001');
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedResult, setGeneratedResult] = useState<any>(null);
   const [isApplying, setIsApplying] = useState(false);
@@ -60,6 +62,8 @@ export function OmniDirectorModal({
         concept: concept.trim(),
         genre,
         sceneCount,
+        omniModelId,
+        videoModelId,
         applyToProject: false,
       });
       setGeneratedResult(res.storyboard);
@@ -80,6 +84,8 @@ export function OmniDirectorModal({
         concept: concept.trim(),
         genre,
         sceneCount,
+        omniModelId,
+        videoModelId,
         applyToProject: true,
       });
       onScenesCreated();
@@ -178,6 +184,41 @@ export function OmniDirectorModal({
                     <span>2 Scenes (Quick)</span>
                     <span>6 Scenes (Full Arc)</span>
                   </div>
+                </div>
+              </div>
+
+              {/* Omni AI & Video Model Selection */}
+              <div className="grid grid-cols-2 gap-3 p-3 rounded-xl bg-purple-950/20 border border-purple-800/30">
+                <div>
+                  <label className="text-[11px] font-semibold text-purple-300 block mb-1 flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-purple-400" />
+                    <span>Omni Director AI</span>
+                  </label>
+                  <select
+                    value={omniModelId}
+                    onChange={(e) => setOmniModelId(e.target.value)}
+                    className="w-full bg-cine-950 border border-purple-700/40 rounded-xl p-2 text-xs text-purple-200 focus:outline-none focus:border-purple-400 font-medium"
+                  >
+                    <option value="gemini-2.0-flash">Gemini 2.0 Flash Omni (Fastest)</option>
+                    <option value="gemini-1.5-pro">Gemini 1.5 Pro Omni (Cinematic Depth)</option>
+                    <option value="gemini-1.5-flash">Gemini 1.5 Flash (Lightweight)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="text-[11px] font-semibold text-amber-300 block mb-1 flex items-center gap-1">
+                    <Film className="w-3 h-3 text-amber-400" />
+                    <span>Target Video Model</span>
+                  </label>
+                  <select
+                    value={videoModelId}
+                    onChange={(e) => setVideoModelId(e.target.value)}
+                    className="w-full bg-cine-950 border border-amber-600/30 rounded-xl p-2 text-xs text-amber-200 focus:outline-none focus:border-amber-400 font-medium"
+                  >
+                    <option value="veo-omni-generate-001">✨ Omni Video (Veo Omni 1.0)</option>
+                    <option value="veo-2.0-generate-001">Veo 2.0 (High Cinematic)</option>
+                    <option value="veo-3.0-generate-001">Veo 3.0 / 3.1 (Next-Gen)</option>
+                  </select>
                 </div>
               </div>
 

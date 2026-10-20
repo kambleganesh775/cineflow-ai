@@ -9,7 +9,7 @@ export const omniRouter = Router();
 // POST /api/omni/storyboard - Generate multi-scene storyboard from story concept
 omniRouter.post('/storyboard', async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { projectId, concept, genre, sceneCount, applyToProject } = req.body;
+    const { projectId, concept, genre, sceneCount, applyToProject, omniModelId, videoModelId } = req.body;
 
     if (!concept || typeof concept !== 'string') {
       res.status(400).json({
@@ -22,7 +22,8 @@ omniRouter.post('/storyboard', async (req: Request, res: Response, next: NextFun
     const storyboard = await omniDirectorService.generateStoryboard(
       concept.trim(),
       genre || 'Cinematic Sci-Fi',
-      sceneCount ? parseInt(sceneCount, 10) : 4
+      sceneCount ? parseInt(sceneCount, 10) : 4,
+      omniModelId
     );
 
     // If applyToProject is true and projectId is given, append these scenes to the project directly!
@@ -32,10 +33,11 @@ omniRouter.post('/storyboard', async (req: Request, res: Response, next: NextFun
       if (project) {
         const existingScenes = await dbService.listScenesByProject(projectId);
         let startIndex = existingScenes.length;
+        const targetModelId = videoModelId || project.settings.defaultModelId;
 
         for (const genScene of storyboard.scenes) {
           const cost = calculateVeoCost(
-            project.settings.defaultModelId,
+            targetModelId,
             genScene.durationSeconds,
             project.settings.defaultResolution
           );
@@ -53,7 +55,7 @@ omniRouter.post('/storyboard', async (req: Request, res: Response, next: NextFun
             aspectRatio: project.settings.defaultAspectRatio,
             durationSeconds: genScene.durationSeconds,
             resolution: project.settings.defaultResolution,
-            modelId: project.settings.defaultModelId,
+            modelId: targetModelId,
             status: 'draft',
             estimatedCostUsd: cost.estimatedCostUsd,
             createdAt: new Date().toISOString(),
@@ -88,7 +90,7 @@ omniRouter.post('/storyboard', async (req: Request, res: Response, next: NextFun
 // POST /api/omni/enhance - Enhance a prompt with cinematic terminology
 omniRouter.post('/enhance', async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { prompt, cameraMovement, lighting, visualStyle } = req.body;
+    const { prompt, cameraMovement, lighting, visualStyle, omniModelId } = req.body;
 
     if (!prompt || typeof prompt !== 'string') {
       res.status(400).json({
@@ -102,7 +104,8 @@ omniRouter.post('/enhance', async (req: Request, res: Response, next: NextFuncti
       prompt.trim(),
       cameraMovement,
       lighting,
-      visualStyle
+      visualStyle,
+      omniModelId
     );
 
     res.json({

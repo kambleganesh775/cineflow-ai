@@ -14,6 +14,7 @@ export interface AppConfig {
   googleCloudStorageBucket: string;
   firebaseProjectId: string;
   veoModelId: string;
+  omniModelId: string;
   authorizedOwnerEmail: string;
   authorizedEmails: string[];
   authMode: 'local_dev' | 'google_oauth' | 'google_iap';
@@ -40,6 +41,7 @@ export const config: AppConfig = {
   googleCloudStorageBucket: process.env.GOOGLE_CLOUD_STORAGE_BUCKET || 'cineflow-ai-private-videos',
   firebaseProjectId: process.env.FIREBASE_PROJECT_ID || process.env.GOOGLE_CLOUD_PROJECT || 'cineflow-default-project',
   veoModelId: process.env.VEO_MODEL_ID || 'veo-2.0-generate-001',
+  omniModelId: process.env.OMNI_MODEL_ID || 'gemini-2.0-flash',
   authorizedOwnerEmail: parsedEmails[0] || (process.env.AUTHORIZED_OWNER_EMAIL || 'owner@cineflow.local').trim().toLowerCase(),
   authorizedEmails: parsedEmails,
   authMode: (process.env.AUTH_MODE as any) || 'local_dev',

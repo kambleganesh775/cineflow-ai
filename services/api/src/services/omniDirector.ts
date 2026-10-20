@@ -25,9 +25,11 @@ export class OmniDirectorService {
   async generateStoryboard(
     concept: string,
     genre = 'Cinematic Sci-Fi',
-    sceneCount = 4
+    sceneCount = 4,
+    omniModelId?: string
   ): Promise<OmniStoryboardResult> {
     const cleanCount = Math.min(6, Math.max(2, sceneCount));
+    const activeOmniModel = omniModelId || config.omniModelId;
 
     // Try Google Cloud Vertex AI Gemini if credentials are active
     try {
@@ -35,7 +37,7 @@ export class OmniDirectorService {
       const token = await client.getAccessToken();
 
       if (token.token && !config.mockVertexAi && config.googleCloudProject !== 'cineflow-default-project') {
-        const endpoint = `https://${config.googleCloudLocation}-aiplatform.googleapis.com/v1/projects/${config.googleCloudProject}/locations/${config.googleCloudLocation}/publishers/google/models/gemini-1.5-flash:generateContent`;
+        const endpoint = `https://${config.googleCloudLocation}-aiplatform.googleapis.com/v1/projects/${config.googleCloudProject}/locations/${config.googleCloudLocation}/publishers/google/models/${activeOmniModel}:generateContent`;
 
         const systemPrompt = `You are an elite Hollywood Director and AI Video Cinematographer for Google Veo.
 Create a ${cleanCount}-scene visual storyboard based on the user's concept in the ${genre} genre.
@@ -94,11 +96,13 @@ Return STRICT JSON ONLY conforming to:
     prompt: string,
     existingCamera?: string,
     existingLighting?: string,
-    existingStyle?: string
+    existingStyle?: string,
+    omniModelId?: string
   ): Promise<OmniEnhancePromptResult> {
     const camera = existingCamera || CAMERA_MOVEMENTS[Math.floor(Math.random() * CAMERA_MOVEMENTS.length)];
     const lighting = existingLighting || LIGHTING_STYLES[Math.floor(Math.random() * LIGHTING_STYLES.length)];
     const style = existingStyle || VISUAL_STYLES[Math.floor(Math.random() * VISUAL_STYLES.length)];
+    const activeOmniModel = omniModelId || config.omniModelId;
 
     // Try Vertex AI Gemini enhancement if available
     try {
@@ -106,7 +110,7 @@ Return STRICT JSON ONLY conforming to:
       const token = await client.getAccessToken();
 
       if (token.token && !config.mockVertexAi && config.googleCloudProject !== 'cineflow-default-project') {
-        const endpoint = `https://${config.googleCloudLocation}-aiplatform.googleapis.com/v1/projects/${config.googleCloudProject}/locations/${config.googleCloudLocation}/publishers/google/models/gemini-1.5-flash:generateContent`;
+        const endpoint = `https://${config.googleCloudLocation}-aiplatform.googleapis.com/v1/projects/${config.googleCloudProject}/locations/${config.googleCloudLocation}/publishers/google/models/${activeOmniModel}:generateContent`;
 
         const res = await fetch(endpoint, {
           method: 'POST',

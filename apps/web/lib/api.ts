@@ -195,10 +195,13 @@ export const api = {
     genre?: string;
     sceneCount?: number;
     applyToProject?: boolean;
+    omniModelId?: string;
+    videoModelId?: string;
   }): Promise<{
     storyboard: {
       title: string;
       synopsis: string;
+      omniModelUsed?: string;
       scenes: Array<{
         title: string;
         prompt: string;
@@ -207,6 +210,7 @@ export const api = {
         lighting: string;
         visualStyle: string;
         durationSeconds: number;
+        modelId?: string;
       }>;
     };
     createdScenes?: Scene[];
@@ -222,11 +226,13 @@ export const api = {
     cameraMovement?: string;
     lighting?: string;
     visualStyle?: string;
+    omniModelId?: string;
   }): Promise<{
     enhancedPrompt: string;
     suggestedCamera: string;
     suggestedLighting: string;
     suggestedStyle: string;
+    omniModelUsed?: string;
   }> {
     return fetchJson(`${API_BASE}/omni/enhance`, {
       method: 'POST',

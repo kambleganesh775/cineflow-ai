@@ -49,9 +49,52 @@ export const VEO_MODELS: Record<string, VeoModelMeta> = {
     supportedResolutions: ['720p', '1080p'],
     supportsImageToVideo: true,
   },
+  'veo-omni-generate-001': {
+    id: 'veo-omni-generate-001',
+    name: 'Omni Video (Vertex Veo Omni 1.0)',
+    version: 'Omni-1.0',
+    description: 'Flagship multimodal Omni model with real-time prompt coherence, native scene continuity, and hyper-realistic camera rendering.',
+    costPerSecond720pUsd: 0.25,
+    costPerSecond1080pUsd: 0.50,
+    minDurationSeconds: 5,
+    maxDurationSeconds: 8,
+    supportedAspectRatios: ['16:9', '9:16', '1:1'],
+    supportedResolutions: ['720p', '1080p'],
+    supportsImageToVideo: true,
+  },
 };
 
 export const DEFAULT_VEO_MODEL = 'veo-2.0-generate-001';
+
+export interface OmniDirectorModelMeta {
+  id: string;
+  name: string;
+  description: string;
+  isMultimodal: boolean;
+}
+
+export const OMNI_DIRECTOR_MODELS: Record<string, OmniDirectorModelMeta> = {
+  'gemini-2.0-flash': {
+    id: 'gemini-2.0-flash',
+    name: 'Gemini 2.0 Flash Omni',
+    description: 'Google’s next-gen real-time multimodal model with native storyboard reasoning and camera direction.',
+    isMultimodal: true,
+  },
+  'gemini-1.5-pro': {
+    id: 'gemini-1.5-pro',
+    name: 'Gemini 1.5 Pro Omni Cinematic',
+    description: 'Deep narrative reasoning and complex multi-shot Hollywood script continuity.',
+    isMultimodal: true,
+  },
+  'gemini-1.5-flash': {
+    id: 'gemini-1.5-flash',
+    name: 'Gemini 1.5 Flash (Lightweight)',
+    description: 'Fast, cost-efficient prompt and storyboard synthesis.',
+    isMultimodal: true,
+  },
+};
+
+export const DEFAULT_OMNI_DIRECTOR_MODEL = 'gemini-2.0-flash';
 
 export const CAMERA_MOVEMENTS = [
   'Static (Fixed Camera)',
@@ -209,6 +252,8 @@ export interface OmniStoryboardRequest {
   genre?: string;
   sceneCount?: number;
   aspectRatio?: AspectRatio;
+  omniModelId?: string;
+  videoModelId?: string;
 }
 
 export interface OmniGeneratedScene {
@@ -219,11 +264,13 @@ export interface OmniGeneratedScene {
   lighting: string;
   visualStyle: string;
   durationSeconds: number;
+  modelId?: string;
 }
 
 export interface OmniStoryboardResult {
   title: string;
   synopsis: string;
+  omniModelUsed?: string;
   scenes: OmniGeneratedScene[];
 }
 
@@ -232,6 +279,7 @@ export interface OmniEnhancePromptRequest {
   cameraMovement?: string;
   lighting?: string;
   visualStyle?: string;
+  omniModelId?: string;
 }
 
 export interface OmniEnhancePromptResult {
@@ -239,6 +287,7 @@ export interface OmniEnhancePromptResult {
   suggestedCamera: string;
   suggestedLighting: string;
   suggestedStyle: string;
+  omniModelUsed?: string;
 }
 
 /**
