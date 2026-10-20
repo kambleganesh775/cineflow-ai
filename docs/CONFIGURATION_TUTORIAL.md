@@ -73,10 +73,16 @@ GOOGLE_CLOUD_STORAGE_BUCKET=cineflow-ai-private-videos-your-project-id
 FIREBASE_PROJECT_ID=your-google-cloud-project-id
 
 # ==============================================================================
-# 2. VEO MODEL CONFIGURATION
+# 2. VEO & OMNI MODEL CONFIGURATION
 # ==============================================================================
-# Available model IDs: veo-2.0-generate-001 (production), veo-3.0-generate-001
+# Available video model IDs:
+#   veo-omni-generate-001 (✨ Omni Video Studio)
+#   veo-2.0-generate-001  (High Cinematic Quality)
+#   veo-3.0-generate-001  (Next-Gen)
 VEO_MODEL_ID=veo-2.0-generate-001
+
+# AI Omni Director Model (gemini-2.0-flash, gemini-1.5-pro, gemini-1.5-flash)
+OMNI_MODEL_ID=gemini-2.0-flash
 
 # ==============================================================================
 # 3. YOUR AUTHORIZED GOOGLE ACCOUNT (ACCESS CONTROL)
@@ -225,17 +231,17 @@ CineFlow AI features **AI Omni Director**, a specialized director co-pilot for m
 2. Type your core concept or logline (e.g., *"A neon detective in 2088 tracking a rogue android through an underwater city"*).
 3. Pick a **Genre**:
    - *Cyberpunk*, *Sci-Fi*, *Cinematic Drama*, *Thriller*, *Fantasy*, *Documentary*.
-4. Choose your **Pacing**:
-   - *Slow & Contemplative* (establishing shots, long focal lengths)
-   - *Dynamic Narrative* (standard cinematic pacing with movement)
-   - *Fast & Intense* (rapid tracking, handheld, urgent action)
-5. Click **Generate Storyboard with Omni**.
-6. Omni Director outputs 4 to 6 fully formed scenes complete with:
+4. Choose your **Pacing** and scene count (2 to 6 scenes).
+5. Select your **AI & Video Models**:
+   - **Omni Director AI**: Choose between *Gemini 2.0 Flash Omni* (ultra-fast multimodal), *Gemini 1.5 Pro Omni* (deep cinematic narrative), or *Gemini 1.5 Flash*.
+   - **Target Video Model**: Choose between *✨ Omni Video (Veo Omni 1.0)*, *Veo 2.0*, or *Veo 3.0*.
+6. Click **Generate Storyboard with Omni**.
+7. Omni Director outputs 4 to 6 fully formed scenes complete with:
    - Scene Titles and Shot Orders
    - Lens specifications (35mm, 50mm, 85mm anamorphic)
    - Camera movements (dolly, tilt, drone orbit, slow push)
    - Lighting directions (chiaroscuro, volumetric, neon)
-7. Click **Import All Scenes to Project** to append all generated scenes onto your timeline instantly!
+8. Click **Import All Scenes to Project** to append all generated scenes onto your timeline instantly!
 
 ### 2. Enhancing Single Scene Prompts
 1. Open any scene on your timeline.

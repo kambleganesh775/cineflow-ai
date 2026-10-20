@@ -28,6 +28,7 @@ GOOGLE_CLOUD_PROJECT=your-google-cloud-project-id
 GOOGLE_CLOUD_LOCATION=us-central1
 GOOGLE_CLOUD_STORAGE_BUCKET=cineflow-ai-private-videos-your-project-id
 VEO_MODEL_ID=veo-2.0-generate-001
+OMNI_MODEL_ID=gemini-2.0-flash
 
 # Personal Ownership
 AUTHORIZED_OWNER_EMAIL=your-google-email@gmail.com
@@ -109,12 +110,14 @@ CineFlow AI includes **AI Omni Director**, an intelligent storyboarding and prom
    - In the Studio header, click the **✨ Omni Director** button.
    - Describe your story idea (e.g., *"A solitary astronaut discovering an ancient alien monolithic structure in an icy canyon on Europa"*).
    - Select your preferred **Genre** (*Sci-Fi, Cyberpunk, Cinematic Drama, Fantasy, Thriller, Documentary*) and **Pacing** (*Slow, Dynamic, Fast*).
+   - Select your **Omni Director AI** (`Gemini 2.0 Flash Omni`, `Gemini 1.5 Pro Omni`, or `Gemini 1.5 Flash`) and **Target Video Model** (`Omni Video (Veo Omni 1.0)`, `Veo 2.0`, or `Veo 3.0`).
    - Click **Generate Storyboard with Omni**.
-   - Review the generated scenes and click **Import All Scenes to Project** to immediately populate your timeline.
+   - Review the generated scenes and click **Import All Scenes to Project** to immediately populate your timeline with all camera vectors, lighting, and models.
 
 2. **Scene Prompt Enhancer**:
    - When editing any individual scene in the Scene Editor, enter a simple description and click **✨ Enhance with Omni**.
    - Omni Director rewrites the prompt into a professional cinematic prompt with camera lenses (e.g. 35mm anamorphic), volumetric lighting, and camera paths.
+   - Select **✨ Omni Video (Vertex Veo Omni 1.0)** from the Model Engine dropdown in the right Inspector Panel for multimodal video coherence.
 
 ---
 

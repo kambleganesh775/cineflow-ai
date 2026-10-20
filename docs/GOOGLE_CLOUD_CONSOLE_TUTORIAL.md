@@ -97,15 +97,15 @@ Firestore stores your projects, scenes, and generation history.
 
 ---
 
-## 6. Check Vertex AI Veo Quota
+## 6. Check Vertex AI Veo & Gemini Quota
 
 1. In the search bar, search for **Vertex AI** > **Model Garden** ([https://console.cloud.google.com/vertex-ai/model-garden](https://console.cloud.google.com/vertex-ai/model-garden)).
-2. Search for **Veo** or **veo-2.0-generate-001**.
-3. Click on the model card to confirm it is available in your project's region (`us-central1`).
+2. Search for **Veo** (`veo-2.0-generate-001`, `veo-omni-generate-001`) and **Gemini** (`gemini-2.0-flash`, `gemini-1.5-pro`).
+3. Click on the model card to confirm they are available in your project's region (`us-central1`).
 4. To check quota limits:
    - Go to **IAM & Admin** > **Quotas** ([https://console.cloud.google.com/iam-admin/quotas](https://console.cloud.google.com/iam-admin/quotas)).
    - Filter by Service: `Vertex AI API`.
-   - Verify that you have quota for video generation requests.
+   - Verify that you have quota for video generation requests (`Generate Video API`) and multimodal content generation (`Generate Content API`).
 
 ---
 
@@ -141,10 +141,13 @@ FIREBASE_PROJECT_ID=your-project-id-here
 AUTHORIZED_OWNER_EMAIL=your-google-email@gmail.com
 AUTHORIZED_EMAILS=your-google-email@gmail.com
 
-# 5. Model
+# 5. Video Model: veo-2.0-generate-001 or veo-omni-generate-001
 VEO_MODEL_ID=veo-2.0-generate-001
 
-# 6. Mode: Set to false to generate REAL videos with Veo
+# 6. Omni Director AI: gemini-2.0-flash, gemini-1.5-pro, or gemini-1.5-flash
+OMNI_MODEL_ID=gemini-2.0-flash
+
+# 7. Mode: Set to false to generate REAL videos with Veo
 MOCK_VERTEX_AI=false
 REQUIRE_BILLING_CONFIRMATION=true
 ```

@@ -40,6 +40,8 @@ Vertex AI Veo charges on a **pay-as-you-go, per-output-second** basis for succes
 | **Veo 2.0 (High Cinematic)** | 1080p | **$0.30 / sec** | **~$1.50 USD** | **~$2.40 USD** |
 | **Veo 3.0 / 3.1 Next-Gen** | 720p | **$0.20 / sec** | **~$1.00 USD** | **~$1.60 USD** |
 | **Veo 3.0 / 3.1 Next-Gen** | 1080p | **$0.40 / sec** | **~$2.00 USD** | **~$3.20 USD** |
+| **✨ Omni Video (Veo Omni 1.0)** | 720p | **$0.25 / sec** | **~$1.25 USD** | **~$2.00 USD** |
+| **✨ Omni Video (Veo Omni 1.0)** | 1080p | **$0.50 / sec** | **~$2.50 USD** | **~$4.00 USD** |
 
 *Note: Unsuccessful requests, filtered prompts, or requests rejected before completion incur **$0.00** charge.*
 

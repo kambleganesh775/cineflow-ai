@@ -113,11 +113,17 @@ All tests verify authentication enforcement, project/scene lifecycle, billing co
 
 ---
 
-## 💰 Official Vertex AI Veo Pricing Reference
+## 💰 Official Vertex AI Veo & Omni Pricing Reference
 
 | Model | 720p Rate / Sec | 1080p Rate / Sec | 5-Second Scene | 8-Second Scene |
 | :--- | :--- | :--- | :--- | :--- |
 | **Veo 2.0 (High Cinematic)** | $0.15 / sec | $0.30 / sec | ~$0.75 USD | ~$1.20 USD |
 | **Veo 3.0 (Next-Gen)** | $0.20 / sec | $0.40 / sec | ~$1.00 USD | ~$1.60 USD |
+| **✨ Omni Video (Veo Omni 1.0)** | $0.25 / sec | $0.50 / sec | ~$1.25 USD | ~$2.00 USD |
 
-*Promotional trial credits cover official Vertex AI Veo usage. Always verify line-item offsets in Google Cloud Billing Reports.*
+### AI Omni Director Intelligence Models
+- **Gemini 2.0 Flash Omni** (`gemini-2.0-flash`): Ultra-fast real-time multimodal scriptwriting and camera directives (~$0.0002/storyboard).
+- **Gemini 1.5 Pro Omni** (`gemini-1.5-pro`): Deep cinematic narrative reasoning and character continuity.
+- **Gemini 1.5 Flash** (`gemini-1.5-flash`): Lightweight prompt enhancement.
+
+*Promotional trial credits cover official Vertex AI Veo & Gemini usage. Always verify line-item offsets in Google Cloud Billing Reports.*
