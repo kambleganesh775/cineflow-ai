@@ -188,6 +188,52 @@ export const api = {
     return fetchJson(`${API_BASE}/cost/diagnostic`);
   },
 
+  // Omni AI Director
+  async generateStoryboard(data: {
+    projectId: string;
+    concept: string;
+    genre?: string;
+    sceneCount?: number;
+    applyToProject?: boolean;
+  }): Promise<{
+    storyboard: {
+      title: string;
+      synopsis: string;
+      scenes: Array<{
+        title: string;
+        prompt: string;
+        negativePrompt?: string;
+        cameraMovement: string;
+        lighting: string;
+        visualStyle: string;
+        durationSeconds: number;
+      }>;
+    };
+    createdScenes?: Scene[];
+  }> {
+    return fetchJson(`${API_BASE}/omni/storyboard`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  },
+
+  async enhancePrompt(data: {
+    prompt: string;
+    cameraMovement?: string;
+    lighting?: string;
+    visualStyle?: string;
+  }): Promise<{
+    enhancedPrompt: string;
+    suggestedCamera: string;
+    suggestedLighting: string;
+    suggestedStyle: string;
+  }> {
+    return fetchJson(`${API_BASE}/omni/enhance`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  },
+
   // Assets upload
   async uploadReferenceImage(file: File): Promise<{ dataUri: string; mimeType: string; size: number }> {
     const formData = new FormData();

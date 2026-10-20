@@ -12,6 +12,8 @@ import {
   UploadCloud,
   ChevronDown,
   ChevronUp,
+  Wand2,
+  Loader2,
 } from 'lucide-react';
 import { api } from '../lib/api';
 
@@ -23,6 +25,7 @@ interface SceneEditorProps {
 export function SceneEditor({ scene, onUpdateScene }: SceneEditorProps) {
   const [showNegative, setShowNegative] = useState(false);
   const [isUploadingImage, setIsUploadingImage] = useState(false);
+  const [isEnhancing, setIsEnhancing] = useState(false);
 
   if (!scene) {
     return (
@@ -75,7 +78,49 @@ export function SceneEditor({ scene, onUpdateScene }: SceneEditorProps) {
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             <span>Cinematic Prompt</span>
           </label>
-          <span className="text-[11px] text-cine-400">{scene.prompt?.length || 0} / 2000 chars</span>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={async () => {
+                if (!scene.prompt?.trim()) return;
+                try {
+                  setIsEnhancing(true);
+                  const res = await api.enhancePrompt({
+                    prompt: scene.prompt,
+                    cameraMovement: scene.cameraMovement,
+                    lighting: scene.lighting,
+                    visualStyle: scene.visualStyle,
+                  });
+                  onUpdateScene({
+                    prompt: res.enhancedPrompt,
+                    cameraMovement: res.suggestedCamera,
+                    lighting: res.suggestedLighting,
+                    visualStyle: res.suggestedStyle,
+                  });
+                } catch (err: any) {
+                  alert(`Prompt enhancement failed: ${err.message}`);
+                } finally {
+                  setIsEnhancing(false);
+                }
+              }}
+              disabled={isEnhancing || !scene.prompt?.trim()}
+              className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gradient-to-r from-purple-500/20 to-amber-500/20 hover:from-purple-500/30 hover:to-amber-500/30 border border-purple-500/30 text-[11px] font-semibold text-purple-300 hover:text-white transition-all disabled:opacity-50 cursor-pointer shadow-sm"
+              title="Automatically expand with cinematic textures, lighting and camera vectors"
+            >
+              {isEnhancing ? (
+                <>
+                  <Loader2 className="w-3 h-3 animate-spin text-purple-400" />
+                  <span>Omni Enhancing...</span>
+                </>
+              ) : (
+                <>
+                  <Wand2 className="w-3 h-3 text-purple-400" />
+                  <span>✨ Enhance with Omni</span>
+                </>
+              )}
+            </button>
+            <span className="text-[11px] text-cine-400">{scene.prompt?.length || 0} / 2000 chars</span>
+          </div>
         </div>
         <textarea
           rows={3}

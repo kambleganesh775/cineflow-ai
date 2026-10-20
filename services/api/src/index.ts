@@ -12,6 +12,7 @@ import { renderRouter } from './routes/render';
 import { costRouter } from './routes/cost';
 import { authRouter } from './routes/auth';
 import { assetsRouter } from './routes/assets';
+import { omniRouter } from './routes/omni';
 
 export const app = express();
 
@@ -57,6 +58,7 @@ app.use('/api', requireAuth, scenesRouter);
 app.use('/api', requireAuth, jobsRouter);
 app.use('/api', requireAuth, renderRouter);
 app.use('/api/cost', requireAuth, costRouter);
+app.use('/api/omni', requireAuth, omniRouter);
 
 // Central error handler
 app.use(errorHandler);

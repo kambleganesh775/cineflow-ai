@@ -11,6 +11,7 @@ import { InspectorPanel } from '../components/InspectorPanel';
 import { BillingConfirmModal } from '../components/BillingConfirmModal';
 import { CreditGuidanceModal } from '../components/CreditGuidanceModal';
 import { NewProjectModal } from '../components/NewProjectModal';
+import { OmniDirectorModal } from '../components/OmniDirectorModal';
 import { Loader2 } from 'lucide-react';
 
 export default function StudioPage() {
@@ -24,6 +25,7 @@ export default function StudioPage() {
   const [isBillingModalOpen, setIsBillingModalOpen] = useState(false);
   const [isCreditModalOpen, setIsCreditModalOpen] = useState(false);
   const [isNewProjectModalOpen, setIsNewProjectModalOpen] = useState(false);
+  const [isOmniModalOpen, setIsOmniModalOpen] = useState(false);
   const [pendingGeneration, setPendingGeneration] = useState<{
     type: 'single' | 'all';
     sceneId?: string;
@@ -305,6 +307,7 @@ export default function StudioPage() {
         onSelectProject={handleSelectProject}
         onNewProject={() => setIsNewProjectModalOpen(true)}
         onOpenCreditModal={() => setIsCreditModalOpen(true)}
+        onOpenOmniModal={() => setIsOmniModalOpen(true)}
       />
 
       {/* Main Workspace Body */}
@@ -372,6 +375,19 @@ export default function StudioPage() {
         isOpen={isNewProjectModalOpen}
         onClose={() => setIsNewProjectModalOpen(false)}
         onCreate={handleCreateProject}
+      />
+
+      {/* AI Omni Director Modal */}
+      <OmniDirectorModal
+        isOpen={isOmniModalOpen}
+        onClose={() => setIsOmniModalOpen(false)}
+        projectId={currentProject?.id || ''}
+        onScenesCreated={async () => {
+          if (currentProject) {
+            const refreshed = await api.getProject(currentProject.id);
+            setCurrentProject(refreshed);
+          }
+        }}
       />
     </div>
   );

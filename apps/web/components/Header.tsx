@@ -10,6 +10,7 @@ import {
   ChevronDown,
   Sparkles,
   Info,
+  Wand2,
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -18,6 +19,7 @@ interface HeaderProps {
   onSelectProject: (projectId: string) => void;
   onNewProject: () => void;
   onOpenCreditModal: () => void;
+  onOpenOmniModal: () => void;
 }
 
 export function Header({
@@ -26,6 +28,7 @@ export function Header({
   onSelectProject,
   onNewProject,
   onOpenCreditModal,
+  onOpenOmniModal,
 }: HeaderProps) {
   return (
     <header className="h-16 bg-cine-900 border-b border-cine-800 px-6 flex items-center justify-between shrink-0 select-none">
@@ -75,6 +78,14 @@ export function Header({
         >
           <Plus className="w-3.5 h-3.5" />
           <span>New Project</span>
+        </button>
+
+        <button
+          onClick={onOpenOmniModal}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-purple-500/20 via-fuchsia-500/20 to-amber-500/20 hover:from-purple-500/30 hover:to-amber-500/30 border border-purple-500/30 text-purple-300 hover:text-white text-xs font-semibold transition-all shadow-sm cursor-pointer"
+        >
+          <Wand2 className="w-3.5 h-3.5 text-purple-400" />
+          <span>AI Omni Director</span>
         </button>
       </div>
 

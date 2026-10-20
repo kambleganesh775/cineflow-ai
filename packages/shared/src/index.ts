@@ -203,14 +203,42 @@ export interface UserIdentity {
   isAuthorizedOwner: boolean;
 }
 
-export interface ApiResponse<T = any> {
-  success: boolean;
-  data?: T;
-  error?: {
-    code: string;
-    message: string;
-    details?: any;
-  };
+export interface OmniStoryboardRequest {
+  projectId: string;
+  concept: string;
+  genre?: string;
+  sceneCount?: number;
+  aspectRatio?: AspectRatio;
+}
+
+export interface OmniGeneratedScene {
+  title: string;
+  prompt: string;
+  negativePrompt?: string;
+  cameraMovement: string;
+  lighting: string;
+  visualStyle: string;
+  durationSeconds: number;
+}
+
+export interface OmniStoryboardResult {
+  title: string;
+  synopsis: string;
+  scenes: OmniGeneratedScene[];
+}
+
+export interface OmniEnhancePromptRequest {
+  prompt: string;
+  cameraMovement?: string;
+  lighting?: string;
+  visualStyle?: string;
+}
+
+export interface OmniEnhancePromptResult {
+  enhancedPrompt: string;
+  suggestedCamera: string;
+  suggestedLighting: string;
+  suggestedStyle: string;
 }
 
 /**

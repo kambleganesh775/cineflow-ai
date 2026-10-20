@@ -35,6 +35,14 @@ export function Sidebar({ ownerEmail: initialEmail }: SidebarProps) {
       .catch(() => {});
   }, []);
 
+  const navItems = [
+    { name: 'Video Studio', href: '/', icon: Film },
+    { name: 'My Projects', href: '/projects', icon: FolderKanban },
+    { name: 'Generation History', href: '/history', icon: History },
+    { name: 'Credits & Costs', href: '/cost', icon: CreditCard },
+    { name: 'Private Settings', href: '/settings', icon: Settings },
+  ];
+
   return (
     <aside className="w-64 bg-cine-900 border-r border-cine-800 flex flex-col h-screen select-none shrink-0">
       {/* Brand Wordmark */}
